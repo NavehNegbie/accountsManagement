@@ -1,0 +1,56 @@
+$colors: (
+    app-background: #fff,
+    thead: #e4e4e4,
+    disabled-background: #f3f3f3,
+    disabled-font: #b7bcbf,
+    table-borders: rgb(170, 170, 170),
+    highlight-borders: #7fa9e7,
+    red-font: red,
+);
+
+body, html {
+    height: 100%;
+}
+
+.App {
+    max-width: 50%;
+    margin: auto;
+    background-color: map-get($colors, app-background);
+    font-weight: lighter;
+}
+
+thead {
+    font-weight: bolder;
+    background-color: map-get($colors, thead);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    td {
+        width: 20%;
+        border: 1px solid map-get($colors, table-borders);
+        padding: 0.4vh 0 0.4vh 0.5vw;
+    }
+}
+
+.headlines {
+    padding: 2vh 0 1vh 0;
+}
+
+.highlight {
+    border: 2px solid map-get($colors, highlight-borders);
+}
+
+.clickCursor {
+    cursor: pointer;
+}
+
+.red {
+    color: map-get($colors, red-font);
+}
+
+.disabled {
+    background-color: map-get($colors, disabled-background);
+    color: map-get($colors, disabled-font);
+}

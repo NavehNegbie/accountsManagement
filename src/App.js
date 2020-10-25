@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from 'prop-types';
+import React, { memo, useEffect } from 'react';
+import { connect } from 'react-redux';
+import Accounts2 from './components/Accounts';
+import Managers2 from './components/Managers';
+import { accountsData, managers } from './data';
+import { initData } from './redux/actions';
+import './styles/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const propTypes = {
+  // Redux
+  initData: PropTypes.func.isRequired,  
 }
 
-export default App;
+const App = ({ initData }) => {
+
+  useEffect(() => {
+    initData({
+      managers,
+      accountsData
+    });
+  }, []);
+
+  return (
+    <div className="App">
+      <div className="headlines">Account managers data set:</div>
+      <Managers2 />
+
+      <div className="headlines">Accounts data set:</div>
+      <Accounts2 />
+    </div>
+  );
+};
+
+const mapDispatchToProps = dispatch => ({
+  initData: data => dispatch(initData(data))
+})
+
+App.propTypes = propTypes;
+export default memo(connect(null, mapDispatchToProps)(App));

@@ -1,0 +1,48 @@
+body, html {
+  height: 100%;
+}
+
+.App {
+  max-width: 50%;
+  margin: auto;
+  background-color: #fff;
+  font-weight: lighter;
+}
+
+thead {
+  font-weight: bolder;
+  background-color: #e4e4e4;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table td {
+  width: 20%;
+  border: 1px solid #aaaaaa;
+  padding: 0.4vh 0 0.4vh 0.5vw;
+}
+
+.headlines {
+  padding: 2vh 0 1vh 0;
+}
+
+.highlight {
+  border: 2px solid #7fa9e7;
+}
+
+.clickCursor {
+  cursor: pointer;
+}
+
+.red {
+  color: red;
+}
+
+.disabled {
+  background-color: #f3f3f3;
+  color: #b7bcbf;
+}
+/*# sourceMappingURL=app.css.map */
